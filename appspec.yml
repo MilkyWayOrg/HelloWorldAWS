@@ -1,0 +1,17 @@
+version: 0.0
+os: linux
+files:
+  - source: /target/hello-world.war
+    destination: /var/lib/tomcat7/webapps
+hooks:
+  ApplicationStop:
+    - location: /scripts/stop_application.sh
+      timeout: 300
+  BeforeInstall:
+    - location: /scripts/uninstall_war_file.sh
+      timeout: 300
+  ApplicationStart:
+    - location: /scripts/start_application.sh
+      timeout: 300
+    
+

@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - mvn clean package
+
+artifacts:
+  files:
+    - target/hello-world.war
+    - appspec.yml
+    - scripts/start_application.sh
+    - scripts/stop_application.sh
+    - scripts/uninstall_war_file.sh
+discard-paths: yes
